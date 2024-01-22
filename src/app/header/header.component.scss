@@ -1,13 +1,15 @@
-.container,
-.container-fluid,
-.container-xxl,
-.container-xl,
-.container-lg,
-.container-md,
-.container-sm {
-  width: 100%;
-  padding-right: calc(var(1.5rem) * 0.5);
-  padding-left: calc(var(1.5rem) * 0.5);
-  margin-right: auto;
-  margin-left: auto;
+.title {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.title h1 {
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+.title p {
+    margin-top: 5px;
+    color: #999;
+    font-size: 0.8em;
 }
