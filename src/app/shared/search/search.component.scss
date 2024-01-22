@@ -1,0 +1,28 @@
+.align-element {
+  justify-content: center;
+  align-items: center;
+}
+
+.search {
+  width: 100%;
+  border: 0px;
+  border-radius: 30px;
+  display: block;
+  padding: 19px 10px 19px 90px;
+  background: transparent url("/assets/icon/lupa.svg") no-repeat 28px;
+  background-size: 25px;
+  background-color: #FDECEC;
+}
+
+input.search[type="search"]::placeholder {
+  font-family: 'Work Sans', sans-serif;
+  color: #FF1510;
+  font-size: 19px;
+  opacity: 0.6;
+}
+
+input.search:focus {
+  box-shadow: 0 0 3px 0 #ff1510;
+  border-color: #fdecec;
+  outline: none;
+}

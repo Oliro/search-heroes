@@ -1,15 +1,26 @@
 .title {
     text-align: center;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Work Sans', sans-serif;
 }
 
 .title h1 {
     margin-top: 5px;
     margin-bottom: 0px;
+    color: #404040;
 }
 
 .title p {
     margin-top: 5px;
-    color: #999;
+    color: #8c8c8c;
     font-size: 0.8em;
+}
+
+.logo {
+ margin-right: auto;
+ margin-left: auto;
+ display: block
+}
+
+.search {
+ margin-top: 50px;    
 }
