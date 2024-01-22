@@ -1,0 +1,13 @@
+.container,
+.container-fluid,
+.container-xxl,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+  width: 100%;
+  padding-right: calc(var(1.5rem) * 0.5);
+  padding-left: calc(var(1.5rem) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
