@@ -1,11 +1,37 @@
 <section class="section container">
-    <div class="row align-element-center">
+    <div class="align-element-center">
 
-        @for (character of characters; track $index) {
-        <div class="col-md-3 col-sm-6 col-xs-12">
-            <app-cards [character]='character'></app-cards>
+        <div class="row section__panel">
+
+            <div class="col-7 section__panel__item">
+                <span class="section__panel__item--found">Encontrados {{characters.length}} heróis</span>
+            </div>
+
+            <div class="col section__panel__item">
+
+                <img class="section__panel__item--option" src="assets/icon/hero.svg" alt="Hero Icon" height="20px">
+                <span class="section__panel__item--option">Ordenar por nome - A/Z</span>
+
+                <button class="section__panel__item--btn-toggle" (click)="toggleSelect()">
+                    <img [src]=" isClicked ? 'assets/icon/toggle_a.svg' : 'assets/icon/toggle_b.svg' "
+                        alt="toggle image" height="32px">
+                </button>
+
+                <img class="section__panel__item--option" src="assets/icon/heart-d.svg" alt="Heart Icon" height="13px">
+                <span class="section__panel__item--option">Somente favoritos</span>
+
+            </div>
+
         </div>
-        }
+
+        <div class="row">
+            @for (character of characters; track $index) {
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <app-cards [character]='character'></app-cards>
+            </div>
+            }
+        </div>
+
 
     </div>
 </section>

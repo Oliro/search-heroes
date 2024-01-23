@@ -17,6 +17,8 @@ export class HomeComponent implements OnInit {
 
   public characters: Character[] = [];
 
+  public isClicked: boolean = false;
+
   constructor(private marvelApi: MarvelApiService) { }
 
   ngOnInit(): void {
@@ -36,6 +38,10 @@ export class HomeComponent implements OnInit {
         this.characters = result;
       })
 
+  }
+
+  toggleSelect() {
+    this.isClicked = !this.isClicked;
   }
 
 }
