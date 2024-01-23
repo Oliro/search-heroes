@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -12,9 +12,11 @@ import { FormsModule } from '@angular/forms';
 export class SearchComponent {
 
   public query: string = '';
-  
-  search(){
 
+  @Output() public queryEvent = new EventEmitter<string>();
+
+  search() {
+    this.queryEvent.emit(this.query)
   }
 
 }

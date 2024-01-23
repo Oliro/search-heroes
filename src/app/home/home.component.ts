@@ -4,11 +4,12 @@ import { MarvelApiService } from '../services/marvelApi.service';
 import { Character } from '../models/character';
 import { catchError } from 'rxjs';
 import { CardsComponent } from '../shared/cards/cards.component';
+import { SearchComponent } from '../shared/search/search.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, CardsComponent],
+  imports: [CommonModule, CardsComponent, SearchComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
@@ -40,8 +41,18 @@ export class HomeComponent implements OnInit {
 
   }
 
+  getCharactersbySearch() {
+
+  }
+
   toggleSelect() {
     this.isClicked = !this.isClicked;
+  }
+
+  getQuerySearch(query: string) {
+    if (query.length > 1) {
+      this.marvelApi.getByQuery(query).subscribe((result) => this.characters = result);
+    }
   }
 
 }
