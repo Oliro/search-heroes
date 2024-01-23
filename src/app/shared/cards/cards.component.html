@@ -1,7 +1,18 @@
 <div class="card">
     <img class="configImg" [src]="character.thumbnail.path+'.'+character.thumbnail.extension" [alt]="character.name">
-    <div class="container">
-      <h4><b>{{character.name}}</b></h4>
-      <span><img src="" alt=""></span>
+
+    <div class="card__container">
+
+        <div class="row">
+
+            <div class="col">
+                <h4><b>{{character.name}}</b></h4>
+            </div>
+            <div class="col card__heart">
+                <img class="card__heart--fav" src="assets/icon/heart.svg" alt="Heart Icon" (click)="favorite()" [ngClass]="{'card__heart--fav-fill': isFavorite}">
+            </div>
+
+        </div>
+
     </div>
 </div>
