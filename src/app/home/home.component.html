@@ -1,7 +1,11 @@
-<section class="container">
+<section class="section container">
     <div class="row align-element-center">
 
-            <h1>teste</h1>
-     
+        @for (character of characters; track $index) {
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <app-cards [character]='character'></app-cards>
+        </div>
+        }
+
     </div>
 </section>
