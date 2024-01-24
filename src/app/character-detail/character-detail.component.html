@@ -8,8 +8,26 @@
     <ng-container *ngIf="character$ | async as character">
 
         <div class="row">
+
             <div class="col">
+
                 <h4><b>{{character.name}}</b></h4>
+                <p>{{character.description}}</p>
+
+                <span>Quadrinhos:
+                    <img src="" alt="">
+                    <p>{{character.comics.available}}</p>
+                </span>
+
+                <span>Filmes:
+                    <img src="" alt="">
+                    <p>{{character.series.available}}</p>
+                </span>
+
+                <span>Último quadrinho:
+                    <p>{{character.modified}}</p>
+                </span>
+
             </div>
             <div class="col"></div>
         </div>

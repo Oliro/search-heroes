@@ -2,8 +2,8 @@
   display: flex;
   margin-top: 20px;
   justify-content: center;
-  font-family: "Work Sans", sans-serif;
-  background-color: #ff1510;
+  font-family: var(--font-work-sans);
+  background-color: var(--red);
   padding: 10px;
   color: #fff;
 }

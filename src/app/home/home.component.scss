@@ -8,7 +8,7 @@
 .section__panel {
   padding-left: 10px;
   padding-bottom: 20px;
-  font-family: "Work Sans", sans-serif;
+  font-family: var(--font-work-sans);
 }
 
 .section__panel__item {
@@ -17,7 +17,7 @@
 }
 
 .section__panel__item--found {
-  color: #8c8c8c;
+  color: var(--grey-m);
 }
 
 .section__panel__item--btn-toggle {
@@ -32,7 +32,7 @@
   padding-left: 5px;
   padding-right: 5px;
   font-size: 14px;
-  color: #ff1510;
+  color: var(--red);
 }
 
 
