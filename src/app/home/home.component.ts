@@ -5,11 +5,12 @@ import { Character } from '../models/character';
 import { catchError } from 'rxjs';
 import { CardsComponent } from '../shared/cards/cards.component';
 import { SearchComponent } from '../shared/search/search.component';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, CardsComponent, SearchComponent],
+  imports: [CommonModule, CardsComponent, SearchComponent, HeaderComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })

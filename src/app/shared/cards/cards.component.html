@@ -1,6 +1,7 @@
 <div class="card">
-    <img class="configImg" [src]="character.thumbnail.path+'.'+character.thumbnail.extension" [alt]="character.name">
-
+    <a [routerLink]="['/character-detail',character.id]">
+        <img class="configImg" [src]="character.thumbnail.path+'.'+character.thumbnail.extension" [alt]="character.name">
+    </a>
     <div class="card__container">
 
         <div class="row">
@@ -9,7 +10,8 @@
                 <h4><b>{{character.name}}</b></h4>
             </div>
             <div class="col card__heart">
-                <img class="card__heart--fav" src="assets/icon/heart.svg" alt="Heart Icon" (click)="favorite()" [ngClass]="{'card__heart--fav-fill': isFavorite}">
+                <img class="card__heart--fav" src="assets/icon/heart.svg" alt="Heart Icon" (click)="favorite()"
+                    [ngClass]="{'card__heart--fav-fill': isFavorite}">
             </div>
 
         </div>
