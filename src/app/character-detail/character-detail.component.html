@@ -4,4 +4,16 @@
             <img class="logo" src="assets/brand/logo-marvel.png" alt="Logo Marvel" height="50px">
         </div>
     </div>
+
+    <ng-container *ngIf="character$ | async as character">
+
+        <div class="row">
+            <div class="col">
+                <h4><b>{{character.name}}</b></h4>
+            </div>
+            <div class="col"></div>
+        </div>
+
+    </ng-container>
+    
 </header>
