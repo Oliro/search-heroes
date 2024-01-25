@@ -1,4 +1,4 @@
-export interface Root {
+export interface RootCharacter {
     code: number
     status: string
     copyright: string
