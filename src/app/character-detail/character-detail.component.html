@@ -1,37 +1,111 @@
-<header class="container">
-    <div class="row">
-        <div class="col-3">
-            <img class="logo" src="assets/brand/logo-marvel.png" alt="Logo Marvel" height="50px">
-        </div>
-    </div>
+<div class=" character">
 
-    <ng-container *ngIf="character$ | async as character">
+    <div class="container">
 
-        <div class="row">
-
-            <div class="col">
-
-                <h4><b>{{character.name}}</b></h4>
-                <p>{{character.description}}</p>
-
-                <span>Quadrinhos:
-                    <img src="" alt="">
-                    <p>{{character.comics.available}}</p>
-                </span>
-
-                <span>Filmes:
-                    <img src="" alt="">
-                    <p>{{character.series.available}}</p>
-                </span>
-
-                <span>Último quadrinho:
-                    <p>{{character.modified}}</p>
-                </span>
-
+        <header>
+            <div class="row">
+                <div class="col-3">
+                    <img src="assets/brand/logo-marvel.svg" alt="Logo Marvel" height="70px">
+                </div>
             </div>
-            <div class="col"></div>
-        </div>
+        </header>
 
-    </ng-container>
-    
-</header>
+        <ng-container *ngIf="character$ | async as character">
+
+            <div class="row descriptions">
+
+                <div class="col-md-4">
+
+                    <div class="row row__element-align">
+                        <div class="col">
+                            <h1><b>{{character.name }}</b></h1>
+                        </div>
+
+                        <div class="col-2">
+                            <img class="fav__heart--fav" src="assets/icon/heart.svg" alt="Heart Icon"
+                                (click)="favorite()" [ngClass]="{'fav__heart--fav-fill': isFavorite}">
+                        </div>
+                    </div>
+
+
+                    <p>{{character.description}}</p>
+
+                    <div class="row">
+
+                        <div class="col">
+                            <div class="row row__element-align">
+                                <h5>Quadrinhos:</h5>
+                                <div class="col-2">
+                                    <img src="assets/icon/book.svg" alt="Book Icon" height="20px">
+                                </div>
+                                <div class="col">
+                                    <p>{{character.comics.available}}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="row row__element-align">
+                                <h5>Filmes:</h5>
+                                <div class="col-2">
+                                    <img class="" src="assets/icon/movie.svg" alt="Movie Icon" height="20px">
+                                </div>
+                                <div class="col">
+                                    <p>{{character.series.available}}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row row__element-align">
+                        <div class="col-2">
+                            <h5>Rating:</h5>
+                        </div>
+                        <div class="col">
+                            <img class="" src="assets/icon/star-a.svg" alt="star Icon" height="20px">
+                            <img class="" src="assets/icon/star-a.svg" alt="star Icon" height="20px">
+                            <img class="" src="assets/icon/star-a.svg" alt="star Icon" height="20px">
+                            <img class="" src="assets/icon/star-a.svg" alt="star Icon" height="20px">
+                            <img class="" src="assets/icon/star-a.svg" alt="star Icon" height="20px">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row row__element-align">
+                        <div class="col-4">
+                            <h5>Último quadrinho: </h5>
+                        </div>
+                        <div class="col">
+                            <span>???</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col bg-img"
+                    [ngStyle]="{'background-image': 'url('+ character.thumbnail.path + '.' + character.thumbnail.extension +')'}">
+
+                </div>
+            </div>
+
+            <div class="row comics">
+                <h3>Últimos Lançamentos</h3>
+
+                @for (comic of comics$ | async ; track $index) {
+
+                <div class="col-md-2 col-sm-6 col-xs-12">
+
+                    <div class="card">
+                        <img class="comic-img" [src]="comic.thumbnail.path + '.' + comic.thumbnail.extension"
+                            alt="Comic">
+                        <div class="container comic-description">
+                            <h4><b>{{comic.title}}</b></h4>
+                            <p>{{comic.creators.items[0].name}}</p>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+
+        </ng-container>
+    </div>
+</div>

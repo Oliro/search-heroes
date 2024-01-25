@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { MarvelApiService } from '../services/marvelApi.service';
 import { SearchComponent } from '../shared/search/search.component';
 import { Character } from '../models/character';
+import { Comic } from '../models/comic';
 
 @Component({
   selector: 'app-character-detail',
@@ -17,7 +18,11 @@ import { Character } from '../models/character';
 export class CharacterDetailComponent implements OnInit {
 
   public character$!: Observable<Character>;
+  public comics$!: Observable<Comic[]>;
 
+  
+  public isFavorite: boolean = false;
+  
   constructor(
     private route: ActivatedRoute,
     private marvelApi: MarvelApiService
@@ -25,11 +30,17 @@ export class CharacterDetailComponent implements OnInit {
 
   ngOnInit(): void {
     const characterId = this.route.snapshot.paramMap.get('id');
-    this.getCharacterById(characterId);
+    this.getById(characterId);
   }
 
-  getCharacterById(characterId: unknown) {
-    this.character$ = this.marvelApi.getById(characterId)
+  getById(characterId: unknown) {
+    this.character$ = this.marvelApi.getCharacterById(characterId);
+    this.comics$ = this.marvelApi.getComicsById(characterId);
   }
+
+  favorite() {
+    this.isFavorite = !this.isFavorite;
+  }
+
 
 }
