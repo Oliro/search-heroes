@@ -44,10 +44,6 @@ export class HomeComponent implements OnInit {
 
   }
 
-  getCharactersbySearch() {
-
-  }
-
   toggleSelect() {
     this.isClicked = !this.isClicked;
   }
