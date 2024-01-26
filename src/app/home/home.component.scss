@@ -29,6 +29,11 @@
   cursor: pointer;
 }
 
+.section__panel__item--btn-toggle:disabled img {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 .section__panel__item--option {
   padding-left: 5px;
   padding-right: 5px;

@@ -6,13 +6,14 @@ import { catchError } from 'rxjs';
 import { CardsComponent } from '../shared/cards/cards.component';
 import { SearchComponent } from '../shared/search/search.component';
 import { HeaderComponent } from '../header/header.component';
+import { FavoriteFilterPipe } from "../pipes/favorite-filter.pipe";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, CardsComponent, SearchComponent, HeaderComponent],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  imports: [CommonModule, CardsComponent, SearchComponent, HeaderComponent, FavoriteFilterPipe]
 })
 
 export class HomeComponent implements OnInit {
@@ -23,10 +24,15 @@ export class HomeComponent implements OnInit {
 
   public searchInputBgColor: string = '#fdecec'
 
+  public localStorageData: any[] = [];
+
   constructor(private marvelApi: MarvelApiService) { }
 
   ngOnInit(): void {
+
     this.getCharacters();
+    this.getLocalStorageData();
+
   }
 
   getCharacters() {
@@ -45,13 +51,33 @@ export class HomeComponent implements OnInit {
   }
 
   toggleSelect() {
+
     this.isClicked = !this.isClicked;
+    this.localStorageData = [];
+    this.getLocalStorageData();
+    this.getCharacters();
+
   }
 
   getQuerySearch(query: string) {
+
     if (query.length > 1) {
       this.marvelApi.getByQuery(query).subscribe((result) => this.characters = result);
     }
+
+  }
+
+  getLocalStorageData() {
+    
+    Object.keys(localStorage).forEach(key => {
+      if (key.startsWith('favoriteCharacter')) {
+        const localStorageItem = localStorage.getItem(key);
+        if (localStorageItem) {
+          const itemData = JSON.parse(localStorageItem);
+          this.localStorageData.push(itemData);
+        }
+      }
+    });
   }
 
 }

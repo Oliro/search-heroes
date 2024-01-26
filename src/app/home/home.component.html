@@ -22,7 +22,8 @@
                 <img class="section__panel__item--option" src="assets/icon/hero.svg" alt="Hero Icon" height="20px">
                 <span class="section__panel__item--option">Ordenar por nome - A/Z</span>
 
-                <button class="section__panel__item--btn-toggle" (click)="toggleSelect()">
+                <button class="section__panel__item--btn-toggle" (click)="toggleSelect()"
+                    [disabled]="localStorageData.length === 0">
                     <img [src]=" isClicked ? 'assets/icon/toggle_a.svg' : 'assets/icon/toggle_b.svg' "
                         alt="toggle image" height="32px">
                 </button>
@@ -35,11 +36,21 @@
         </div>
 
         <div class="row">
-            @for (character of characters; track $index) {
+
+            @if (isClicked){
+            @for (character of characters | favoriteFilter: localStorageData; track $index ) {
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <app-cards [character]='character'></app-cards>
             </div>
             }
+            }@else {
+            @for (character of characters; track $index ) {
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <app-cards [character]='character'></app-cards>
+            </div>
+            }
+            }
+
         </div>
 
 
