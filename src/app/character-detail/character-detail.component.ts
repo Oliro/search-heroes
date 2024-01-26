@@ -32,6 +32,8 @@ export class CharacterDetailComponent implements OnInit {
   ngOnInit(): void {
     const characterId = this.route.snapshot.paramMap.get('id');
     this.getById(characterId);
+
+    this.checkIsFavorite(characterId);
   }
 
   getById(characterId: unknown) {
@@ -39,8 +41,15 @@ export class CharacterDetailComponent implements OnInit {
     this.comics$ = this.marvelApi.getComicsById(characterId);
   }
 
-  favorite() {
-    this.isFavorite = !this.isFavorite;
+  checkIsFavorite(characterId: any) {
+
+    const getFavoriteCharacter = localStorage.getItem(`favoriteCharacter-${characterId}`);
+    if (getFavoriteCharacter !== null) {
+
+      const favoriteCharacter = JSON.parse(getFavoriteCharacter);
+      this.isFavorite = favoriteCharacter.isFavorite;
+
+    }
   }
 
 

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AppRoutingModule } from 'src/app/app-routing.module';
+
 import { Character } from 'src/app/models/character';
 
 @Component({
@@ -19,14 +19,7 @@ export class CardsComponent {
 
   favorite(characterId: any) {
 
-    this.isFavorite = !this.isFavorite;
-
-    //remover do favorito
-    if (!this.isFavorite) {
-      return localStorage.removeItem(`favoriteCharacter-${characterId}`);
-    }
-
-    //contar quantos favoritos tem
+    //contar quantos favoritos tem no storage
     let count = 0;
     Object.keys(localStorage).forEach(key => {
       if (key.startsWith('favoriteCharacter')) {
@@ -34,29 +27,34 @@ export class CardsComponent {
       }
     });
 
-    if (count > 4) {
-      this.isFavorite = false;
+    //pegar o favorito no localstorage
+    const getFavoriteCharacter = localStorage.getItem(`favoriteCharacter-${characterId}`);
+    let statusFavorite: any = {};
+    if (getFavoriteCharacter !== null) {
+      statusFavorite = JSON.parse(getFavoriteCharacter);
+    }
+
+    if (!statusFavorite.isFavorite && count >= 5) {
       return alert('Quantidade máxima de favoritos 5 foi atingida.')
+    }
+
+    if (statusFavorite.isFavorite) {
+      this.isFavorite = false;
+      return localStorage.removeItem(`favoriteCharacter-${characterId}`);
     }
 
     const favorite = {
       character: characterId,
-      isFavorite: this.isFavorite
+      isFavorite: true
     }
-    //setar como favorito
+
     const favoriteString = JSON.stringify(favorite);
     localStorage.setItem(`favoriteCharacter-${characterId}`, favoriteString);
-
-    //pegar o favorito no localstorage
-    const getFavoriteCharacter = localStorage.getItem(`favoriteCharacter-${characterId}`);
-    if (getFavoriteCharacter !== null) {
-      const favoriteCharacter = JSON.parse(getFavoriteCharacter);
-    }
 
   }
 
   checkIsFavorite(characterId: any) {
-    //pegar o favorito no localstorage
+
     const getFavoriteCharacter = localStorage.getItem(`favoriteCharacter-${characterId}`);
     if (getFavoriteCharacter !== null) {
 
