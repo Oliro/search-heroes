@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -14,6 +14,8 @@ export class SearchComponent {
   public query: string = '';
 
   @Output() public queryEvent = new EventEmitter<string>();
+
+  @Input() public searchInputBgColor: string = '';
 
   search() {
     this.queryEvent.emit(this.query)

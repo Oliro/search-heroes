@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Observable} from 'rxjs';
 import { CommonModule } from '@angular/common';
 
@@ -11,7 +11,7 @@ import { Comic } from '../models/comic';
 @Component({
   selector: 'app-character-detail',
   standalone: true,
-  imports: [CommonModule, SearchComponent],
+  imports: [CommonModule, SearchComponent, RouterModule],
   templateUrl: './character-detail.component.html',
   styleUrl: './character-detail.component.scss'
 })
@@ -19,10 +19,11 @@ export class CharacterDetailComponent implements OnInit {
 
   public character$!: Observable<Character>;
   public comics$!: Observable<Comic[]>;
-
-  
+ 
   public isFavorite: boolean = false;
   
+  public searchInputBgColor: string = '#ffffff'
+
   constructor(
     private route: ActivatedRoute,
     private marvelApi: MarvelApiService

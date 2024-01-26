@@ -21,6 +21,8 @@ export class HomeComponent implements OnInit {
 
   public isClicked: boolean = false;
 
+  public searchInputBgColor: string = '#fdecec'
+
   constructor(private marvelApi: MarvelApiService) { }
 
   ngOnInit(): void {

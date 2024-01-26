@@ -1,7 +1,11 @@
 <app-header></app-header>
 
-<div class="search">
-    <app-search (queryEvent)="getQuerySearch($event)"></app-search>
+<div class="row align-element-center">
+    <div class="col-11 col-md-8 col-lg-8 ">
+        <div class="search-size">
+            <app-search [searchInputBgColor]="searchInputBgColor" (queryEvent)="getQuerySearch($event)"></app-search>
+        </div>
+    </div>
 </div>
 
 <section class="section container">

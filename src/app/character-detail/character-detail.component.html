@@ -3,9 +3,16 @@
     <div class="container">
 
         <header>
-            <div class="row">
-                <div class="col-3">
-                    <img src="assets/brand/logo-marvel.svg" alt="Logo Marvel" height="70px">
+            <div class="row row__element-align">
+                <div class="col-4">
+                    <a [routerLink]="['']">
+                        <img src="assets/brand/logo-marvel.svg" alt="Logo Marvel" height="70px">
+                    </a>
+                </div>
+                <div class="col-11 col-md-8 col-lg-8 ">
+                    <div class="search-size">
+                        <app-search [searchInputBgColor]="searchInputBgColor"></app-search>
+                    </div>
                 </div>
             </div>
         </header>
@@ -18,7 +25,7 @@
 
                     <div class="row row__element-align">
                         <div class="col">
-                            <h1><b>{{character.name }}</b></h1>
+                            <h1><b>{{character.name}}</b></h1>
                         </div>
 
                         <div class="col-2">
@@ -28,7 +35,7 @@
                     </div>
 
 
-                    <p>{{character.description}}</p>
+                    <p class="descriptions__history">{{character.description}}</p>
 
                     <div class="row">
 
@@ -63,11 +70,11 @@
                             <h5>Rating:</h5>
                         </div>
                         <div class="col">
-                            <img class="" src="assets/icon/star-a.svg" alt="star Icon" height="20px">
-                            <img class="" src="assets/icon/star-a.svg" alt="star Icon" height="20px">
-                            <img class="" src="assets/icon/star-a.svg" alt="star Icon" height="20px">
-                            <img class="" src="assets/icon/star-a.svg" alt="star Icon" height="20px">
-                            <img class="" src="assets/icon/star-a.svg" alt="star Icon" height="20px">
+                            <img class="" src="assets/icon/star-a.svg" alt="star Icon" height="15px">
+                            <img class="" src="assets/icon/star-a.svg" alt="star Icon" height="15px">
+                            <img class="" src="assets/icon/star-a.svg" alt="star Icon" height="15px">
+                            <img class="" src="assets/icon/star-a.svg" alt="star Icon" height="15px">
+                            <img class="" src="assets/icon/star-a.svg" alt="star Icon" height="15px">
                         </div>
                     </div>
                     <br>
@@ -76,14 +83,14 @@
                             <h5>Último quadrinho: </h5>
                         </div>
                         <div class="col">
-                            <span>???</span>
+                            <span>13 fev. 2020</span>
                         </div>
                     </div>
 
                 </div>
-                <div class="col bg-img"
-                    [ngStyle]="{'background-image': 'url('+ character.thumbnail.path + '.' + character.thumbnail.extension +')'}">
-
+                <div class="col img-promo">
+                    <img [src]="character.thumbnail.path + '.' + character.thumbnail.extension" [alt]="character.name"
+                        class="configImg">
                 </div>
             </div>
 
