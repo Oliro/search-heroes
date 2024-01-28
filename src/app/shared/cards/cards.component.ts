@@ -3,6 +3,7 @@ import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { Character } from 'src/app/models/character';
+import { Localstorage } from '../localstorage';
 
 @Component({
   selector: 'app-cards',
@@ -11,7 +12,11 @@ import { Character } from 'src/app/models/character';
   templateUrl: './cards.component.html',
   styleUrl: './cards.component.scss'
 })
-export class CardsComponent {
+export class CardsComponent extends Localstorage {
+
+  constructor() {
+    super();
+  }
 
   @Input() character!: Character;
 
@@ -19,28 +24,19 @@ export class CardsComponent {
 
   favorite(characterId: any) {
 
-    //contar quantos favoritos tem no storage
-    let count = 0;
-    Object.keys(localStorage).forEach(key => {
-      if (key.startsWith('favoriteCharacter')) {
-        count++;
-      }
-    });
-
-    //pegar o favorito no localstorage
-    const getFavoriteCharacter = localStorage.getItem(`favoriteCharacter-${characterId}`);
+    const getFavoriteCharacter = this.getFavoriteById(characterId);
     let statusFavorite: any = {};
     if (getFavoriteCharacter !== null) {
       statusFavorite = JSON.parse(getFavoriteCharacter);
     }
 
-    if (!statusFavorite.isFavorite && count >= 5) {
+    if (!statusFavorite.isFavorite && this.countFavorite() >= 5) {
       return alert('Quantidade máxima de favoritos 5 foi atingida.')
     }
 
     if (statusFavorite.isFavorite) {
       this.isFavorite = false;
-      return localStorage.removeItem(`favoriteCharacter-${characterId}`);
+      return this.removeFavoriteById(characterId);
     }
 
     const favorite = {
@@ -48,14 +44,14 @@ export class CardsComponent {
       isFavorite: true
     }
 
-    const favoriteString = JSON.stringify(favorite);
-    localStorage.setItem(`favoriteCharacter-${characterId}`, favoriteString);
+    this.setFavoriteById(favorite);
 
   }
 
   checkIsFavorite(characterId: any) {
 
-    const getFavoriteCharacter = localStorage.getItem(`favoriteCharacter-${characterId}`);
+    const getFavoriteCharacter = this.getFavoriteById(characterId);
+    
     if (getFavoriteCharacter !== null) {
 
       const favoriteCharacter = JSON.parse(getFavoriteCharacter);
