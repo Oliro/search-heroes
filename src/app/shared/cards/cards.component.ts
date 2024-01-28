@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { Character } from 'src/app/models/character';
@@ -19,6 +19,8 @@ export class CardsComponent extends Localstorage {
   }
 
   @Input() character!: Character;
+
+  @Output() public hasFavorited = new EventEmitter<boolean>();
 
   public isFavorite: boolean = false;
 
@@ -45,6 +47,8 @@ export class CardsComponent extends Localstorage {
     }
 
     this.setFavoriteById(favorite);
+
+    this.hasFavorited.emit(true);
 
   }
 

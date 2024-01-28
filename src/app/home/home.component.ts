@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MarvelApiService } from '../services/marvelApi.service';
 import { Character } from '../models/character';
@@ -25,6 +25,8 @@ export class HomeComponent implements OnInit {
   public searchInputBgColor: string = '#fdecec'
 
   public localStorageData: any[] = [];
+
+  @ViewChild('toggleFavorite') toggleFavorite!: ElementRef;
 
   constructor(private marvelApi: MarvelApiService) { }
 
@@ -68,7 +70,7 @@ export class HomeComponent implements OnInit {
   }
 
   getLocalStorageData() {
-    
+
     Object.keys(localStorage).forEach(key => {
       if (key.startsWith('favoriteCharacter')) {
         const localStorageItem = localStorage.getItem(key);
@@ -78,6 +80,19 @@ export class HomeComponent implements OnInit {
         }
       }
     });
+  }
+
+  hasFavorited(value: any) {
+
+    this.toggleSelect();
+    if (this.localStorageData.length === 0) {
+      this.toggleFavorite.nativeElement.disabled;
+      this.isClicked = false;
+    } else {
+      this.toggleFavorite.nativeElement.disabled = false;
+      this.isClicked = false;
+    }
+
   }
 
 }
