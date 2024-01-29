@@ -1,0 +1,197 @@
+[33mcommit 013e14fea5b5ebfb3086d6293a9bdc977fc2555c[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;32mdeveloper[m[33m)[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Mon Jan 29 09:58:50 2024 -0300
+
+    feat: add env file to .gitignore
+
+[33mcommit 3d04e9667552c3f0f3ae36afe356658ad59f6f0c[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Mon Jan 29 09:00:35 2024 -0300
+
+    feat: adjuste layout image character
+
+[33mcommit 79241cbfed4adaad94754385f29607728ad9fc0e[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Sun Jan 28 16:21:34 2024 -0300
+
+    fix: toggle favorite functions
+
+[33mcommit cadbbf2127551f151f11dbc884c55b88b454d0c2[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Sun Jan 28 15:32:02 2024 -0300
+
+    refactor: access favorite localstorage logic
+
+[33mcommit 6ce9b239cb99386fd5269df381112cd2ed480c68[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Sun Jan 28 15:30:08 2024 -0300
+
+    feat: create localstorage class
+
+[33mcommit 66ce4cebfabcea437717fc57dd2c67c92f6360b9[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Fri Jan 26 15:49:08 2024 -0300
+
+    feat: add pipe and functionality to filter favorite character
+
+[33mcommit 948ad37431054c81733e7b70527ad03a94279e3c[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Fri Jan 26 14:21:20 2024 -0300
+
+    refactor: favorite character logic
+
+[33mcommit e3f554c45e208fa2c11091e58fff8e4e7d3edfcc[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Fri Jan 26 12:19:51 2024 -0300
+
+    feat: persist favorite in data storage
+
+[33mcommit 31e769c3071d311aeb5a8daaf7fe728e862d7750[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Fri Jan 26 09:36:05 2024 -0300
+
+    feat: adjuste search component to home and character component
+
+[33mcommit d97336fc498ac817a7304e13cda3c843d6957a8c[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Thu Jan 25 15:08:04 2024 -0300
+
+    feat: adjuste character view component
+
+[33mcommit c6282a78b24c35b9d04e886ca9c7e3175a22d410[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Thu Jan 25 15:06:46 2024 -0300
+
+    feat: add api  and create service for comics
+
+[33mcommit 1a446cda2c1afcc18c67873e6234e8482166382d[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Wed Jan 24 19:51:23 2024 -0300
+
+    feat: adjust css variable global
+
+[33mcommit 25477109aea7c74e072faa8596c10b0bcd4caa5f[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Wed Jan 24 13:19:08 2024 -0300
+
+    feat: add confing observable and map result api
+
+[33mcommit 7f8a45e2db55ed85ecbb6e431360a581cf392e88[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Wed Jan 24 11:19:37 2024 -0300
+
+    feat: add configuration routing module
+
+[33mcommit 059fd817d2168da45f4a1fbde480cd9c71a5f21a[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Wed Jan 24 11:19:10 2024 -0300
+
+    feat: create character component
+
+[33mcommit f03fc2f693cacea14d40fc7add4c0e68a171f393[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Wed Jan 24 11:18:13 2024 -0300
+
+    feat: add router-outlet
+
+[33mcommit 17fdae2ae62e331fca264f6b047fd8d9e7c56c00[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Tue Jan 23 20:33:36 2024 -0300
+
+    feat: add footer description
+
+[33mcommit 9fe1d27c285a7e29564be85927f9f8317e430ecc[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Tue Jan 23 20:20:21 2024 -0300
+
+    feat: adjust layout home
+
+[33mcommit df7292886e89abdddd5a57acedb896c9a1a504ad[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Tue Jan 23 20:08:09 2024 -0300
+
+    feat: add search by query api
+
+[33mcommit fedf78707de63328afe72934baf49829e35bbc3d[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Tue Jan 23 15:42:05 2024 -0300
+
+    feat: add layout style home
+
+[33mcommit 056c1f177844ee0de083fdde41281481111e65d1[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Tue Jan 23 13:19:04 2024 -0300
+
+    feat: add  cards style and icons
+
+[33mcommit 765042b7eef965bfeb5d25c879a60b010fc84612[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Tue Jan 23 09:20:40 2024 -0300
+
+    feat: create cards component
+
+[33mcommit 3300649c378c1ce30fda1b6bf90ac2f1432f3fa3[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Tue Jan 23 09:20:02 2024 -0300
+
+    feat: add model interface API
+
+[33mcommit dba9fa615b1aabd609f4bb90ae9c999ecef4f94e[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Tue Jan 23 09:18:19 2024 -0300
+
+    build: add ts-md5
+
+[33mcommit fa1a67c91dd7c61a94e80b719c26e48585874c1b[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Tue Jan 23 09:16:42 2024 -0300
+
+    feat: add interator to show cards
+
+[33mcommit 2ef1388e51e2598d9c2d5163e80ad08fcc7f9ab0[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Mon Jan 22 20:33:23 2024 -0300
+
+    feat: Adjuste home layout
+
+[33mcommit ada04c999b74516fda67228c85c2c57e8ba7981b[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Mon Jan 22 20:32:08 2024 -0300
+
+    build: Update to Angular 17
+
+[33mcommit 9b9181f97cdf97e5c8c2841ecf825fa3f2b5dd56[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Mon Jan 22 19:27:42 2024 -0300
+
+    feat: create home component
+
+[33mcommit 9666c11f3cd987539a28f6100613a7c96f0e3606[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Mon Jan 22 19:21:12 2024 -0300
+
+    feat: add CSS search component
+
+[33mcommit 436bb11f3ce60999f55fe46c2f5f54e7fa675ade[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Mon Jan 22 11:35:58 2024 -0300
+
+    feat: create search component
+
+[33mcommit 52198013d83b63639b7f1f11110d99ec67a9f0f0[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Mon Jan 22 11:23:25 2024 -0300
+
+    feat: Create CSS Header
+
+[33mcommit 173125907766c1d742fdde8035413d38be01c0e3[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Mon Jan 22 10:10:32 2024 -0300
+
+    feat: Create Initial Header Component
+
+[33mcommit 097a74329ca3c73d7b819a6ce1686a7c156919de[m
+Author: Fernando OR <fernando.or6@gmail.com>
+Date:   Mon Jan 22 09:10:11 2024 -0300
+
+    initial commit
