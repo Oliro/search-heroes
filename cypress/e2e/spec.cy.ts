@@ -1,4 +1,4 @@
-describe('My First Test', () => {
+describe('Home test', () => {
 
   it('Visits the initial project page', () => {
     cy.visit('/')
