@@ -46,7 +46,6 @@ export class HomeComponent implements OnInit {
         })
       )
       .subscribe((result) => {
-        console.log(result)
         this.characters = result;
       })
 
