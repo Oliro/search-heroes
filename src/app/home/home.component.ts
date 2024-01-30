@@ -60,7 +60,6 @@ export class HomeComponent implements OnInit {
     this.isClicked = !this.isClicked;
     this.localStorageData = [];
     this.getLocalStorageData();
-    this.getCharacters();
 
   }
 
