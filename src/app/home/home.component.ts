@@ -26,6 +26,8 @@ export class HomeComponent implements OnInit {
 
   public localStorageData: any[] = [];
 
+  public showMessage: boolean = false;
+  
   @ViewChild('toggleFavorite') toggleFavorite!: ElementRef;
 
   constructor(private marvelApi: MarvelApiService) { }
@@ -42,11 +44,13 @@ export class HomeComponent implements OnInit {
     this.marvelApi.getAllCharacters()
       .pipe(
         catchError((err) => {
+          this.showMessage = true;
           throw 'Erro ao consultar API: ' + err;
         })
       )
       .subscribe((result) => {
         this.characters = result;
+        this.showMessage = result.length > 0 ? false : true;
       })
 
   }
@@ -63,7 +67,10 @@ export class HomeComponent implements OnInit {
   getQuerySearch(query: string) {
 
     if (query.length > 1) {
-      this.marvelApi.getByQuery(query).subscribe((result) => this.characters = result);
+      this.marvelApi.getByQuery(query).subscribe((result) => {
+        this.characters = result;
+        this.showMessage = result.length > 0 ? false : true;
+      });
     }
 
   }
