@@ -41,3 +41,14 @@
   font-size: 14px;
   color: var(--red);
 }
+
+.error-message {
+  text-align: center;
+  font-family: var(--font-work-sans);
+  color: #404040;
+  font-size: 19px;
+}
+
+.hide-message {
+  display: none;
+}
