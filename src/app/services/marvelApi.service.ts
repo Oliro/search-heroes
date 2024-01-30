@@ -13,7 +13,7 @@ import { EnvMarvel } from 'src/environments/env-marvel';
 })
 export class MarvelApiService extends EnvMarvel{
 
-  apiUrl = 'http://gateway.marvel.com/v1/public/';
+  apiUrl = 'https://gateway.marvel.com/v1/public/';
   publicKey = 'ad8a9ddb5c03f8151e2ff4ff0d79c9b0';
 
   timeStamp = new Date().getTime();
