@@ -30,7 +30,8 @@
 
                         <div class="col-2">
                             <img class="fav__heart--fav" src="assets/icon/heart.svg" alt="Heart Icon"
-                                [ngClass]="{'fav__heart--fav-fill': isFavorite}">
+                                (click)="favorite(character.id)"
+                                [ngClass]="{'fav__heart--fav-fill': isFavorite || checkIsFavorite(character.id)}">
                         </div>
                     </div>
 
@@ -89,7 +90,8 @@
 
                 </div>
                 <div class="col-md-7 img-promo">
-                    <img class="configImg" [src]="character.thumbnail.path + '.' + character.thumbnail.extension" [alt]="character.name">
+                    <img class="configImg" [src]="character.thumbnail.path + '.' + character.thumbnail.extension"
+                        [alt]="character.name">
                 </div>
             </div>
 
