@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 
@@ -28,7 +28,8 @@ export class CharacterDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private marvelApi: MarvelApiService,
-    private favoriteService: FavoriteService
+    private favoriteService: FavoriteService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -50,5 +51,8 @@ export class CharacterDetailComponent implements OnInit {
     return this.favoriteService.checkIsFavorite(characterId);
   }
 
+  getQuerySearch(query: string) {
+    this.router.navigate([''])
+  }
 
 }
