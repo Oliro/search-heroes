@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
   public localStorageData: any[] = [];
 
   public showMessage: boolean = false;
-  
+
   @ViewChild('toggleFavorite') toggleFavorite!: ElementRef;
 
   constructor(private marvelApi: MarvelApiService) { }
@@ -55,12 +55,9 @@ export class HomeComponent implements OnInit {
 
   }
 
-  toggleSelect() {
-
-    this.isClicked = !this.isClicked;
+  getFavorited() {
     this.localStorageData = [];
     this.getLocalStorageData();
-
   }
 
   getQuerySearch(query: string) {
@@ -89,13 +86,11 @@ export class HomeComponent implements OnInit {
 
   hasFavorited(value: any) {
 
-    this.toggleSelect();
+    this.getFavorited();
     if (this.localStorageData.length === 0) {
       this.toggleFavorite.nativeElement.disabled;
-      this.isClicked = false;
     } else {
       this.toggleFavorite.nativeElement.disabled = false;
-      this.isClicked = false;
     }
 
   }

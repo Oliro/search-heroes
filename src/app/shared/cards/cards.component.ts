@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { Character } from 'src/app/models/character';
 import { Localstorage } from '../localstorage';
+import { FavoriteService } from 'src/app/services/favorite.service';
 
 @Component({
   selector: 'app-cards',
@@ -12,10 +13,10 @@ import { Localstorage } from '../localstorage';
   templateUrl: './cards.component.html',
   styleUrl: './cards.component.scss'
 })
-export class CardsComponent extends Localstorage {
+export class CardsComponent {
 
-  constructor() {
-    super();
+  constructor(private favoriteService: FavoriteService) {
+
   }
 
   @Input() character!: Character;
@@ -24,44 +25,16 @@ export class CardsComponent extends Localstorage {
 
   public isFavorite: boolean = false;
 
-  favorite(characterId: any) {
+  favorite(characterId: number) {
 
-    const getFavoriteCharacter = this.getFavoriteById(characterId);
-    let statusFavorite: any = {};
-    if (getFavoriteCharacter !== null) {
-      statusFavorite = JSON.parse(getFavoriteCharacter);
-    }
+    this.favoriteService.favorite(characterId);
 
-    if (!statusFavorite.isFavorite && this.countFavorite() >= 5) {
-      return alert('Quantidade máxima de favoritos 5 foi atingida.')
-    }
-
-    if (statusFavorite.isFavorite) {
-      this.isFavorite = false;
-      return this.removeFavoriteById(characterId);
-    }
-
-    const favorite = {
-      character: characterId,
-      isFavorite: true
-    }
-
-    this.setFavoriteById(favorite);
-
-    this.hasFavorited.emit(true);
-
+    if(this.favoriteService.hasFavorited) this.hasFavorited.emit(true);
+  
   }
 
-  checkIsFavorite(characterId: any) {
-
-    const getFavoriteCharacter = this.getFavoriteById(characterId);
-    
-    if (getFavoriteCharacter !== null) {
-
-      const favoriteCharacter = JSON.parse(getFavoriteCharacter);
-      return favoriteCharacter.isFavorite;
-
-    }
+  checkIsFavorite(characterId: number) {
+    return this.favoriteService.checkIsFavorite(characterId);
   }
 
 }

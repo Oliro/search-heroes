@@ -1,7 +1,8 @@
 export class Localstorage {
 
-    public setFavoriteById(favoriteData: any) {
+    public setFavoriteById(favoriteData: any): boolean{
         localStorage.setItem(`favoriteCharacter-${favoriteData.character}`, JSON.stringify(favoriteData));
+        return true;
     }
 
     public getFavoriteById(characterId: any) {
