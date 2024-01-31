@@ -10,7 +10,8 @@
                 <h4><b>{{character.name}}</b></h4>
             </div>
             <div class="col card__heart">
-                <img class="card__heart--fav" src="assets/icon/heart.svg" alt="Heart Icon" (click)="favorite(character.id)"
+                <img class="card__heart--fav" src="assets/icon/heart.svg" alt="Heart Icon"
+                    (click)="favorite(character.id)"
                     [ngClass]="{'card__heart--fav-fill': isFavorite || checkIsFavorite(character.id)}">
             </div>
 

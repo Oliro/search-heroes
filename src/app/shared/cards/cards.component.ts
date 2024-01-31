@@ -3,7 +3,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { Character } from 'src/app/models/character';
-import { Localstorage } from '../localstorage';
 import { FavoriteService } from 'src/app/services/favorite.service';
 
 @Component({
@@ -15,12 +14,9 @@ import { FavoriteService } from 'src/app/services/favorite.service';
 })
 export class CardsComponent {
 
-  constructor(private favoriteService: FavoriteService) {
-
-  }
+  constructor(private favoriteService: FavoriteService) {}
 
   @Input() character!: Character;
-
   @Output() public hasFavorited = new EventEmitter<boolean>();
 
   public isFavorite: boolean = false;
@@ -28,9 +24,8 @@ export class CardsComponent {
   favorite(characterId: number) {
 
     this.favoriteService.favorite(characterId);
+    if (this.favoriteService.hasFavorited) this.hasFavorited.emit(true);
 
-    if(this.favoriteService.hasFavorited) this.hasFavorited.emit(true);
-  
   }
 
   checkIsFavorite(characterId: number) {
