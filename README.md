@@ -1,27 +1,55 @@
-# MarvelListApi
+# Marvel Search Heroes
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.3.
+Este projeto foi desenvolvido utilizando os requisitos do Luizalabs Frontend Challenge, concebido em Angular 17 e a API da Marvel de super-heróis. Nele, você pode pesquisar por heróis, favoritar seus prediletos e ver detalhes sobre cada um dos personagens.
 
-## Development server
+Você pode visualizar o projeto funcionando [aqui](https://oliro.github.io/search-heroes/).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Requisitos do Luizalabs Frontend Challenge
 
-## Code scaffolding
+### Objetivo
+Desenvolver uma aplicação de listagem e detalhe de personagens de quadrinhos.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Requisitos
 
-## Build
+- Deve ser uma SPA “single page application”;
+- Não utilizar bibliotecas de UI como: bootstrap, semantic-ui, antdesign e etc;
+- Utilizar API da Marvel ([Documentação da API](https://developer.marvel.com/docs));
+- Disponibilizar em uma URL pública do projeto rodando para avaliação;
+- Disponibilizar código em repositório Git, commitando cada fase do processo de desenvolvimento;
+- Seguir layout da pasta ./assets, respeitando as páginas, features e componentes (não será avaliado “pixel perfect”).
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Requisitos funcionais
 
-## Running unit tests
+#### Página de listagem de personagens (home):
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Exibir os 20 primeiros resultados da API;
+- Permitir ordenação por nome do personagem;
+- Permitir filtrar por nome, pelo campo de busca;
+- Permitir mostrar apenas os personagens favoritos;
+- Permitir o usuário favoritar/desfavoritar até 5 personagens;
 
-## Running end-to-end tests
+#### Página de detalhe do personagem:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Exibir dados do personagem;
+- Exibir os últimos 10 quadrinhos lançados deste personagem (onSaleDate);
+- Persistir os dados de favoritos (para manter os dados após o reload da página);
+- Layout responsivo;
+- Utilização de ES6+;
+- Teste e2e;
 
-## Further help
+## Como rodar localmente a aplicação:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Após clonar o repositório, adquira uma chave PRIVADA da API da Marvel e autorize o domínio `oliro.github.io`. Em seguida, crie um arquivo `env-marvel.ts` no diretório `src/environments` com a sua chave privada. Exemplo:
+
+```typescript
+export class EnvMarvel {
+    privateKey = 'sua chave privada aqui'
+}
+```
+Agora basta rodar o projeto:
+
+ng serve
+
+Para rodar os testes e2e e unitários:
+
+npx cypress open
