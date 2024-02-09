@@ -9,18 +9,18 @@ const routes: Routes = [
 
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: '',
     pathMatch: 'full'
   },
   {
-    path: 'home/:query',
+    path: '',
     component: HomeComponent
   },
   {
     path: 'character-detail/:id',
     component: CharacterDetailComponent
   },
-  { path: '**', component: HomeComponent }
+  { path: '**', redirectTo: '' }
 
 ];
 
