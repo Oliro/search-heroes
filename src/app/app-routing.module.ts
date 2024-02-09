@@ -19,7 +19,8 @@ const routes: Routes = [
   {
     path: 'character-detail/:id',
     component: CharacterDetailComponent
-  }
+  },
+  { path: '**', component: HomeComponent }
 
 ];
 
