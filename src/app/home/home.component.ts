@@ -1,12 +1,15 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { catchError } from 'rxjs';
+
 import { MarvelApiService } from '../services/marvelApi.service';
 import { Character } from '../models/character';
-import { catchError } from 'rxjs';
 import { CardsComponent } from '../shared/cards/cards.component';
 import { SearchComponent } from '../shared/search/search.component';
 import { HeaderComponent } from '../header/header.component';
 import { FavoriteFilterPipe } from "../pipes/favorite-filter.pipe";
+import { SearchService } from '../shared/search/search.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -30,13 +33,11 @@ export class HomeComponent implements OnInit {
 
   @ViewChild('toggleFavorite') toggleFavorite!: ElementRef;
 
-  constructor(private marvelApi: MarvelApiService) { }
+  constructor(private marvelApi: MarvelApiService, private searchService: SearchService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-
-    this.getCharacters();
     this.getLocalStorageData();
-
+    this.getQuerySearch();
   }
 
   getCharacters() {
@@ -52,7 +53,6 @@ export class HomeComponent implements OnInit {
         this.characters = result;
         this.showMessage = result.length > 0 ? false : true;
       })
-
   }
 
   getFavorited() {
@@ -60,15 +60,18 @@ export class HomeComponent implements OnInit {
     this.getLocalStorageData();
   }
 
-  getQuerySearch(query: string) {
+  getQuerySearch() {
 
-    if (query.length > 1) {
-      this.marvelApi.getByQuery(query).subscribe((result) => {
-        this.characters = result;
-        this.showMessage = result.length > 0 ? false : true;
-      });
-    }
+    this.searchService.queryInput$.subscribe((queryValue) => {
 
+      if (queryValue.length > 1) {
+        this.marvelApi.getByQuery(queryValue).subscribe((result) => {
+          this.characters = result;
+          this.showMessage = result.length > 0 ? false : true;
+        });
+      } else this.getCharacters();
+
+    });
   }
 
   getLocalStorageData() {
