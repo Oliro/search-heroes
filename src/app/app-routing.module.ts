@@ -9,14 +9,13 @@ const routes: Routes = [
 
   {
     path: '',
-    redirectTo: '',
+    redirectTo: 'home/',
     pathMatch: 'full'
   },
   {
-    path: '',
+    path: 'home/:query',
     component: HomeComponent
   },
-
   {
     path: 'character-detail/:id',
     component: CharacterDetailComponent
