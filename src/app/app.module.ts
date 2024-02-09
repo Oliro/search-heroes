@@ -3,8 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { HomeComponent } from './home/home.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { LoaderInterceptor } from './interceptor/loader.interceptor';
+import { LoaderModule } from './shared/loader/loader.module';
 
 @NgModule({
   declarations: [
@@ -13,9 +14,10 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    LoaderModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
