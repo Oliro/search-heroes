@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { catchError } from 'rxjs';
+import { catchError, debounceTime, filter } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 import { MarvelApiService } from '../services/marvelApi.service';
 import { Character } from '../models/character';
@@ -9,7 +10,7 @@ import { SearchComponent } from '../shared/search/search.component';
 import { HeaderComponent } from '../header/header.component';
 import { FavoriteFilterPipe } from "../pipes/favorite-filter.pipe";
 import { SearchService } from '../shared/search/search.service';
-import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
@@ -65,12 +66,17 @@ export class HomeComponent implements OnInit {
     this.searchService.queryInput$.subscribe((queryValue) => {
 
       if (queryValue.length > 1) {
-        this.marvelApi.getByQuery(queryValue).subscribe((result) => {
-          this.characters = result;
-          this.showMessage = result.length > 0 ? false : true;
-        });
-      } else this.getCharacters();
+        this.marvelApi.getByQuery(queryValue)
+          .pipe(
+            filter((text) => text.length > 1),
+            debounceTime(400))
+          .subscribe((result) => {
+            this.characters = result;
+            this.showMessage = result.length > 0 ? false : true;
 
+          })
+      }
+      else this.getCharacters();
     });
   }
 
