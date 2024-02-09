@@ -39,6 +39,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getLocalStorageData();
     this.getQuerySearch();
+    this.getCharacters();
   }
 
   getCharacters() {
@@ -65,7 +66,7 @@ export class HomeComponent implements OnInit {
 
     this.searchService.queryInput$.subscribe((queryValue) => {
 
-      if (queryValue.length > 1) {
+      if (queryValue.length >= 1) {
         this.marvelApi.getByQuery(queryValue)
           .pipe(
             filter((text) => text.length > 1),
@@ -76,7 +77,7 @@ export class HomeComponent implements OnInit {
 
           })
       }
-      else this.getCharacters();
+
     });
   }
 
